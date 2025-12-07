@@ -71,6 +71,7 @@ function renderBoard() {
     if (!boardListenersAttached) {
         boardEl.addEventListener('dragover', handleBoardDragOver);
         boardEl.addEventListener('drop', handleBoardDrop);
+        boardEl.addEventListener('touchend', handleBoardTouchEnd, { passive: false });
         boardListenersAttached = true;
     }
     
@@ -137,6 +138,7 @@ function renderTray() {
         pieceEl.addEventListener('click', handlePieceClick);
         pieceEl.addEventListener('dragstart', handlePieceDragStart);
         pieceEl.addEventListener('dragend', handlePieceDragEnd);
+        pieceEl.addEventListener('touchstart', handlePieceTouchStart, { passive: false });
         trayEl.appendChild(pieceEl);
     });
 }
@@ -235,6 +237,25 @@ function handleBoardDragOver(e) {
 function handleBoardDrop(e) {
     e.preventDefault();
     handleCellClick(e);
+}
+
+function handlePieceTouchStart(e) {
+    selectedPieceIndex = parseInt(e.currentTarget.dataset.pieceIndex);
+    e.preventDefault();
+}
+
+function handleBoardTouchEnd(e) {
+    if (selectedPieceIndex === null || isGameOver) return;
+    e.preventDefault();
+    const touch = e.changedTouches && e.changedTouches[0];
+    if (!touch) return;
+    const target = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (!target) return;
+    handleCellClick({
+        target,
+        clientX: touch.clientX,
+        clientY: touch.clientY
+    });
 }
 
 function handlePieceDragEnd() {
