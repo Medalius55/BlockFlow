@@ -10,8 +10,8 @@
     --accent-green: #9de0c5;
     --shadow: 0 10px 35px rgba(56, 90, 164, 0.18);
     --radius: 18px;
-    --cell-size: clamp(26px, 6vw, 32px);
-    --piece-size: clamp(18px, 4.5vw, 24px);
+    --cell-size: clamp(22px, 5.5vw, 28px);
+    --piece-size: clamp(14px, 4vw, 20px);
 }
 
 body.dark {
@@ -33,7 +33,7 @@ body.dark {
 
 body {
     margin: 0;
-    padding: 20px 16px 32px;
+    padding: 12px 10px 20px;
     font-family: "SF Pro Rounded", "Avenir Next", -apple-system, system-ui, sans-serif;
     color: var(--text);
     background: radial-gradient(circle at 20% 20%, var(--bg-1), transparent 45%),
@@ -56,12 +56,12 @@ body.dark {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     background: var(--card);
     backdrop-filter: blur(10px);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: 20px 18px 24px;
+    padding: 16px 14px 20px;
     border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
@@ -70,7 +70,7 @@ body.dark {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 10px;
     color: var(--muted);
 }
 
@@ -80,8 +80,8 @@ body.dark {
 }
 
 button {
-    padding: 12px 16px;
-    font-size: 15px;
+    padding: 10px 14px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     border: none;
@@ -107,7 +107,7 @@ button:active {
 
 #themeToggle {
     min-width: 46px;
-    padding: 10px 12px;
+    padding: 8px 10px;
     font-size: 18px;
     display: inline-flex;
     align-items: center;
@@ -118,12 +118,13 @@ button:active {
     display: grid;
     grid-template-columns: repeat(10, var(--cell-size));
     grid-template-rows: repeat(10, var(--cell-size));
-    gap: 4px;
-    padding: 12px;
+    gap: 3px;
+    padding: 10px;
     background: linear-gradient(135deg, #f4f7ff, #eaf3ff);
     border-radius: 20px;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), var(--shadow);
     border: 1px solid rgba(122, 158, 255, 0.35);
+    touch-action: none;
 }
 
 body.dark .board {
@@ -163,9 +164,10 @@ body.dark .board {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 12px;
     justify-content: center;
-    padding: 12px 8px 4px;
+    padding: 10px 6px 0px;
+    touch-action: none;
 }
 
 .piece {
