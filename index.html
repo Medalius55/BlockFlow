@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="score">Best: <span id="highScore">0</span></div>
+            <button id="newGame">New Game</button>
+            <button id="undo">Undo</button>
+            <button id="hint">Hint</button>
+            <button id="themeToggle" aria-label="Toggle theme">☀️</button>
+        </div>
+        <div id="board" class="board"></div>
+        <div id="tray" class="tray"></div>
+    </div>
+    <div id="overlay" class="overlay">
+        <div class="modal">
+            <h1>BlockFlow</h1>
+            <p id="overlayMessage">Relax and fit the pieces. Ready?</p>
+            <button id="startBtn">Start Game</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
